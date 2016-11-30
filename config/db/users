@@ -1,0 +1,6 @@
+{"k":"0000000078","o":"0000000275","v":"001"}
+{"_id":6,"_uid":6,"_dt":1480499303072,"_s":"af7642a7740b1fa03090ef46a21afa4c"}
+{"email":"rajaniwankhede@gmail.com","password":"$2a$10$XYBQdHmr/IQ1g4r6BZzXlua5YeauHtxS.tdPMyrdnp3I8UQm7ioDS","name":"kiran","selectdesignation":"fdfddssdd","address":"pune","doj":"2016/3/2","mobile":"7385744701","gender":"female","otp":"550411","_id":{"$wrap":"$oid","v":6}}
+{"k":"0000000078","o":"0000000394","v":"001"}
+{"_id":7,"_uid":7,"_dt":1480500510843,"_s":"890d43fa6dfde171e5bec0c773d9f732"}
+{"email":"rajaniwankhede8@gmail.com","password":"$2a$10$1WbNSm9wGxf1VHrDBEV2u.xCjQkgbMvolk.R6n1K4LcYxQpexb9gG","name":"kiran","selectdesignation":"fdfddssdd","address":"pune","doj":"2016/3/2","mobile":"7385744701","gender":"female","token":"eyJhbGciOiJIUzI1NiJ9.cmFqYW5pd2Fua2hlZGU4QGdtYWlsLmNvbWZrbHNhZA.iorYdF7H9hdtvjlBNUqu9iRQXCzOBBvLPPfIl0hO2F4","otp":"207003","_id":{"$wrap":"$oid","v":7}}

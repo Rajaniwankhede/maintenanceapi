@@ -1,0 +1,9 @@
+{"k":"0000000078","o":"0000000405","v":"001"}
+{"_id":2,"_uid":2,"_dt":1480079844846,"_s":"0e3d96ba84616fe6ed0600a71d46135b"}
+{"email":"rajaniwankhede8@gmail.com","password":"$2a$10$AIFUGtngrcgPAJ4nOfo5UezDCXqc/a202OJbg1MhwCibfK.X0nPs.","name":"sr","machinedetails":"fddscsssdd","companyname":"infoxtech","assign date":"2016/3/4","mobile":"74547815362","gender":"male","token":"eyJhbGciOiJIUzI1NiJ9.cmFqYW5pd2Fua2hlZGU4QGdtYWlsLmNvbTEwMTEwMQ.KlOV16-leraURlRfxNWHmN9cjDkUVd_8AX-fCoyHiJw","otp":"111240","_id":{"$wrap":"$oid","v":2}}
+{"k":"0000000078","o":"0000000511","v":"001"}
+{"_id":3,"_uid":3,"_dt":1480153633277,"_s":"d963cd336d4950b2a8efff40815fe269"}
+{"name":"kranti","email":"rajaniwankhede8@gmail.com","mobile":"74547815362","password":"$2a$10$XNivcH6RHqHxCEF2UQOKzuW0KUVA5PxorC.Sv3Ddb5gGMMROhqSpS","machinedetails":"fddscsssdd","companyname":"infoxtech","model":"samsung","machineId":"12","issueDescription":"hi","assignto":"bw","assigndate":"2016/3/4","completiondate":"2016/5/6","costing":"233","token":"eyJhbGciOiJIUzI1NiJ9.cmFqYW5pd2Fua2hlZGU4QGdtYWlsLmNvbTI1MjUyNQ.rrMYpM_MwErj-mTsz7PxH76gkwa7ixkD1HhvmvNMyMo","otp":"226561","_id":{"$wrap":"$oid","v":3}}
+{"k":"0000000078","o":"0000000536","v":"001"}
+{"_id":4,"_uid":4,"_dt":1480501885856,"_s":"1c1d3def6c2d0568056b4046ee040320"}
+{"name":"kranti","email":"rajaniwankhede8@gmail.com","mobile":"74547815362","password":"252525","machinedetails":"fddscsssdd","companyname":"infoxtech","model":"samsung","machineId":"12","issueDescription":"hi","assignto":"bw","assigndate":"2016/3/4","completiondate":"2016/5/6","costing":"233","token":"eyJhbGciOiJIUzI1NiJ9.cmFqYW5pd2Fua2hlZGU4QGdtYWlsLmNvbTI1MjUyNQ.SwzYP66Dy_TYFgNHpTygIUShdwKAXhTqg6EwFKOWE8k","otp":"387297","_id":{"$wrap":"$oid","v":4},"updatedOn":{"$wrap":"$date","v":1480501885838,"h":"2016-11-30T10:31:25.838Z"}}
