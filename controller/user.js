@@ -3,7 +3,7 @@ var bcrypt = require('bcryptjs');
 var password = require("../helper/password.js");
 var ObjectId = require('mongodb').ObjectID;
 var sendMail = require('../helper/sendMail.js');
-var send_sms = require('../helper/send_sms.js');
+//var send_sms = require('../helper/send_sms.js');
 var userValidator = require('../validator/user.js');
 
 module.exports = function (db) {
@@ -53,7 +53,7 @@ module.exports = function (db) {
       req.checkParams('id', 'id must exist').notEmpty();
       if (!req.validateAndRespond()) return;
       var id = req.params.id;
-      db.collection('users').findOne({ _id: id }, { password: 0, _id: 0 }, function (err, result) {
+      db.collection('users').findOne({ _id: new ObjectId(id) }, { password: 0, _id: 0 }, function (err, result) {
         if (result === null) {
           return res.send({
             err: true,
@@ -120,7 +120,7 @@ module.exports = function (db) {
             var id = req.params.id;
 
             var otp = req.body.otp;
-            db.collection('users').findOne({ _id: id }, function (err, result) {
+            db.collection('users').findOne({ _id: new ObjectId(id) }, function (err, result) {
                 if (result == null) {
                     return res.send({
                         err: true,
@@ -128,7 +128,7 @@ module.exports = function (db) {
                     });
                 } else {
 
-                    db.collection('users').update({ _id: id }, { $unset: { "token": "" } }, function (err, result) {
+                    db.collection('users').update({ _id: new ObjectId(id) }, { $unset: { "token": "" } }, function (err, result) {
                         if (err) {
                             return res.send({
                                 err: true,
@@ -143,7 +143,7 @@ module.exports = function (db) {
                     });
                 }
             });
-        },
+     },
       
     //end of logout
     userupdate: function (req, res) {
@@ -151,7 +151,7 @@ module.exports = function (db) {
       if (!req.validateAndRespond()) return;
       var id = req.params.id;
 
-      db.collection('users').findOne({ _id: id }, { password: 0 }, function (err, result) {
+      db.collection('users').findOne({ _id: new ObjectId(id)}, { password: 0 }, function (err, result) {
         if (result == null) {
           return res.send({
             err: true,
@@ -162,7 +162,7 @@ module.exports = function (db) {
           var datenow = new Date();
           clientData.updatedOn = datenow;
            // db.collection('users').insert({ _id: id }, { $set: { "password": _password } }, function (err, result) {
-            db.collection('users').update({ _id: id }, { $set: clientData }, function (err, result) {
+            db.collection('users').update({  _id: new ObjectId(id) }, { $set: clientData }, function (err, result) {
               if (err) {
                 return res.send({
                   err: true,
@@ -195,7 +195,7 @@ module.exports = function (db) {
       });
       userData.otp = otp;
       ///
-      db.collection('users').update({ _id: id }, { $set: { "otp": otp } }, function (err, result) {
+      db.collection('users').update({ _id: new ObjectId(id) }, { $set: { "otp": otp } }, function (err, result) {
         if (err) {
           return res.send({
             err: true,
@@ -227,7 +227,7 @@ module.exports = function (db) {
         });
 
       }
-      db.collection('users').findOne({ _id: id, otp: otp }, function (err, result) {
+      db.collection('users').findOne({  _id: new ObjectId(id), otp: otp }, function (err, result) {
         if (result == null) {
           return res.send({
             err: true,

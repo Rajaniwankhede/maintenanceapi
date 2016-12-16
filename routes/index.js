@@ -10,15 +10,17 @@ module.exports = function (db, app) {
   app.post('/user/:id/forgotpassword/email', user.forgotpassword);
   app.post('/user/:id/Changepassword', user.ChangePassword);
 
+  var machine = require('../controller/machine.js')(db);
+  app.get('/machines', machine.getallmachine);
+  app.post('/machine', machine.addmachine);
+  app.get('/machine/:id', machine.getmachine);
+  app.put('/machine/:id', machine.updatemachine);
+  app.delete('/machine/:id', machine.deletemachine);
 
-  var client = require('../controller/client.js')(db);
-  app.get('/client/:id', client.getclient);
-  app.post('/client', client.addclient);
-  app.post('/client/login', client.clientLogin);
-  app.put('/client/:id', client.clientupdate);
+  var shopclient = require('../controller/shopclient.js')(db);
+  app.post('/admin/shopclient/:email/:password', shopclient.addshopclient);
+  app.get('/admin/shopclient/:email/:password', shopclient.getallshopclient);
+  app.put('/admin/shopclient/:id/:email/:password', shopclient.updateshopclient);
+  app.delete('/admin/shopclient/:id', shopclient.deleteshopclient);
 
-  var issue = require('../controller/issue.js')(db);
-  app.get('/issue/:id', client.getissue);
-  app.post('/issue', client.addissue);
-  
 };

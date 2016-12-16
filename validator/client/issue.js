@@ -6,7 +6,7 @@ module.exports = {
     "issue.assigndate": { notEmpty: true, isDate: true },
     "issue.completiondate": { notEmpty: true, isDate: true },
     "issue.costing": { isString: true, notEmpty: false },
-    "issue.isverified": { isString: true, notEmpty: false },
+    "issue.isverified": { isString: true, notEmpty: false }
 
 };
 

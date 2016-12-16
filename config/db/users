@@ -4,3 +4,6 @@
 {"k":"0000000078","o":"0000000394","v":"001"}
 {"_id":7,"_uid":7,"_dt":1480500510843,"_s":"890d43fa6dfde171e5bec0c773d9f732"}
 {"email":"rajaniwankhede8@gmail.com","password":"$2a$10$1WbNSm9wGxf1VHrDBEV2u.xCjQkgbMvolk.R6n1K4LcYxQpexb9gG","name":"kiran","selectdesignation":"fdfddssdd","address":"pune","doj":"2016/3/2","mobile":"7385744701","gender":"female","token":"eyJhbGciOiJIUzI1NiJ9.cmFqYW5pd2Fua2hlZGU4QGdtYWlsLmNvbWZrbHNhZA.iorYdF7H9hdtvjlBNUqu9iRQXCzOBBvLPPfIl0hO2F4","otp":"207003","_id":{"$wrap":"$oid","v":7}}
+{"k":"0000000078","o":"0000000412","v":"001"}
+{"_id":8,"_uid":8,"_dt":1480741829288,"_s":"c8d032785e0e820b00a53d2f9d98cdb7"}
+{"name":"rajani","gender":"female","email":"rajaniwankhede@gmail.com","mobile":"7385744701","address":"pune","doj":"2016/3/2","selectdesignation":"design","password":"$2a$10$y5dpA2U7/5yez39X6ZaLS.OEq4PfOzqm7Ww0weQwInTG.KJnFm3Fa","confirmpassword":"a123","token":"eyJhbGciOiJIUzI1NiJ9.cmFqYW5pd2Fua2hlZGVAZ21haWwuY29tYTEyMw.OIAgzMt4DTRmZcKQKA63pMZ_rsWJ_g-gn4Df8HDhenM","otp":"885853","_id":{"$wrap":"$oid","v":8}}

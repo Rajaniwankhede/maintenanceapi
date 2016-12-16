@@ -1,17 +1,17 @@
 var jwt = require("jsonwebtoken");
 var bcrypt = require('bcryptjs');
-var password = require("../helper/password.js");
+var password = require("../../helper/password.js");
 var ObjectId = require('mongodb').ObjectID;
-var sendMail = require('../helper/sendMail.js');
-var send_sms = require('../helper/send_sms.js');
-var clientValidator = require('../validator/client.js');
+var sendMail = require('../../helper/sendMail.js');
+var send_sms = require('../../helper/send_sms.js');
+var clientValidator = require('../../validator/client/client.js');
 
 module.exports = function (db) {
   return {
     addclient: function (req, res) {
       req.checkBody(clientValidator);
       if (!req.validateAndRespond()) return;
-      var userData = req.body.user;
+      var userData = req.body.client;
 
       password.hashPassword(userData.password, function (_password) {
         console.log(_password);
@@ -53,7 +53,7 @@ module.exports = function (db) {
       req.checkParams('id', 'id must exist').notEmpty();
       if (!req.validateAndRespond()) return;
       var id = req.params.id;
-      db.collection('client').findOne({ _id: id }, { password: 0, _id: 0 }, function (err, result) {
+      db.collection('client').findOne({ _id: new ObjectId(id) }, { password: 0, _id: 0 }, function (err, result) {
         if (result === null) {
           return res.send({
             err: true,
@@ -120,7 +120,7 @@ module.exports = function (db) {
       if (!req.validateAndRespond()) return;
       var id = req.params.id;
 
-      db.collection('client').findOne({ _id: id }, { password: 0 }, function (err, result) {
+      db.collection('client').findOne({ _id: new ObjectId(id) }, { password: 0 }, function (err, result) {
         if (result == null) {
           return res.send({
             err: true,
@@ -132,22 +132,79 @@ module.exports = function (db) {
           clientData.updatedOn = datenow;
           console.log(clientData);
           // db.collection('client').insert({ _id: id }, { $set: { "password": _password } }, function (err, result) {
-            db.collection('client').update({ _id: id }, { $set: clientData }, function (err, result) {
-              if (err) {
-                return res.send({
-                  err: true,
-                  error: err
-                });
-              } else {
-                return res.send({
-                  err: false,
-                  result: result
-                });
-              }
-            });
-          }
+          db.collection('client').update({ _id: new ObjectId(id) }, { $set: clientData }, function (err, result) {
+            if (err) {
+              return res.send({
+                err: true,
+                error: err
+              });
+            } else {
+              return res.send({
+                err: false,
+                result: result
+              });
+            }
+          });
+        }
       });
     },
     //end of clientupdate
-    };
+    clientActivate: function (req, res) {
+      if (!req.validateAndRespond()) return;
+      var id = req.params.id;
+      var otp = req.body.otp;
+      db.collection('client').findOne({ _id: new ObjectId(id), otp: otp }, function (err, result) {
+        if (result == null) {
+          return res.send({
+            err: true,
+            error: "Invalid OTP Presented.Please try again"
+          });
+        } else {
+
+          db.collection('client').update({ _id: new ObjectId(id) }, { $set: { "status": "active" } }, function (err, result) {
+            if (err) {
+              return res.send({
+                err: true,
+                error: err
+              });
+            } else {
+              return res.send({
+                err: false,
+                result: result
+              });
+            }
+          });
+        }
+      });
+    },
+    inactiveAccount: function (req, res) {
+            req.checkParams('id', 'id must exist').notEmpty();
+            if (!req.validateAndRespond()) return;
+            var id = req.params.id;
+
+            db.collection('client').findOne({ _id: new ObjectId(id) }, { password: 0 }, function (err, result) {
+                if (result == null) {
+                    return res.send({
+                        err: true,
+                        error: "No client found with the provided Id"
+                    });
+                } else {
+                    db.collection('client').update({ _id: new ObjectId(id) }, { $set: { "status": "inactive" } }, function (err, result) {
+                        if (err) {
+                            return res.send({
+                                err: true,
+                                error: err
+                            });
+                        } else {
+                            return res.send({
+                                err: false,
+                                result: result
+                            });
+                        }
+                    });
+                }
+            });
+
+        }
+  };
 };
